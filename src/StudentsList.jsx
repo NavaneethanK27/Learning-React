@@ -11,7 +11,7 @@ const students=[
      }
    ]
 
-      const studentsList=students.map((student) => <Student name ={student.name} regno={student.regno}/>)
+      const studentsList=students.map((student,index) => <Student key={index} name ={student.name} regno={student.regno}/>)
    return(
        <div>
            {studentsList}
