@@ -14,8 +14,7 @@ function App() {
   return (
     <>   
        <StudentsList/>
-  
-       <CourseList/>
+      <CourseList/>
   </>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HTML from './assets/image1.png'  
 import PropTypes from  'prop-types'
 

@@ -1,47 +1,34 @@
-
+import { useEffect, useState } from 'react';
 import Course from './course';
-import HTML from './assets/image1.png' 
-import HTML1 from './assets/image2.png'
-import { useState } from 'react';
-function CourseList(){
-   const [courses, setCourses]=useState([
-    {
-       id : 1,
-       name : "HTML",
-       price:199,
-       image: HTML,
-       rating : "5"
-    },
-    {
-       id : 2,
-       name : "CSS",
-       price:200,
-       image: HTML1,
-       rating : "5"
-    }
-   ])
 
-   function handledelete(id){
-      const newCourse = courses.filter((courses)=>courses.id!=id)
-      setCourses(newCourse);
-   }
-   
-   courses.sort((x,y)=>y.price-x.price)
-   // const vfm=courses.filter((courses)=>courses.price<200);
-   const courseList = courses.map(
-   (course,index)=>
-   <Course key={index} name={course.name}
-      image={course.image} 
-      price={course.price} 
-      rating={course.rating} ondelete={()=>handledelete(course.id)}/>)
-   return(
-      <>
-        {courseList}
-      </>
-   );
+function CourseList() {
+  const [courses, setCourses] = useState([]);
 
+  useEffect(() => {
+    fetch('http://localhost:3000/Courses')
+      .then(response => response.json())
+      .then(data => setCourses(data));
+  }, []);
 
+  function handleDelete(id) {
+    const newCourses = courses.filter(course => course.id !== id);
+    setCourses(newCourses);
+  }
 
+  return (
+    <>
+      {courses.map(course => (
+        <Course
+          key={course.id}
+          name={course.name}
+          image={course.image}
+          price={course.price}
+          rating={course.rating}
+          onDelete={() => handleDelete(course.id)}
+        />
+      ))}
+    </>
+  );
 }
 
-export default CourseList
+export default CourseList;
