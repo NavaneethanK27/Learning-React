@@ -3,7 +3,7 @@
        "id" : 1,
        "name" : "HTML",
        "price":199,
-       "image": "http://localhost:3000/src/assets/image1.png",
+       "image": "http://localhost:3000/assets/image1.png",
        "rating" : "5"
     },
     {

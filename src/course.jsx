@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
-import HTML from './assets/image1.png'  
+import { useState } from 'react';
 import PropTypes from  'prop-types'
 
 function Course({
     name="navanee",
     price="200",
-    image=HTML,
+    image="/assets/image1.png",
     rating=5,
     ondelete,
 }){
@@ -19,7 +18,7 @@ function Course({
     return(
         name &&
         <div className="card">
-        <img src={image} alt="" />
+        <img src={image} alt=""/>
         <h3>{name}</h3>
         <p>{price}</p>
         <span>{rating}</span>
